@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Randy Tran\Documents\GitHub\TNCG15 - MC raycaster\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Randy Tran\Documents\GitHub\TNCG15 - MC raycaster\src\vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Randy Tran\Documents\GitHub\TNCG15 - MC raycaster\src\color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Randy Tran\Documents\GitHub\TNCG15 - MC raycaster\src\ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Randy Tran\Documents\GitHub\TNCG15 - MC raycaster\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C821267F-72BF-3338-A630-CB7F12C94917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{32BAE0A4-3F8E-36A0-BAC6-30974A26AD28}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

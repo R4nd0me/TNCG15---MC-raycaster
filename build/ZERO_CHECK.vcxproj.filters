@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Randy Tran\Documents\GitHub\TNCG15 - MC raycaster\build\CMakeFiles\fc679bbb721f6ae4b3100bc63b89d45f\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{05032848-230E-3BC4-9622-A3D51BBBD3C1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
