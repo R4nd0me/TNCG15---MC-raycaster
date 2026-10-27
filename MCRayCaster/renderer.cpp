@@ -93,13 +93,55 @@ void write_color(std::ostream& out, const std::array<double, 3>& color) {
     out << '\n';
 }
 
+std::optional<double> ray_sphere_intersect (const Vec3& origin, const Vec3& direction, const Sphere& sphere) {
 
+    Vec3 oc = subtraction (origin, sphere.center);
 
+	double a = dot(direction, direction);
+	double half_b = dot(oc, direction);
+	double c = dot(oc, oc) - sphere.radius * sphere.radius;
 
-void render(const std::vector<Triangle>& triangles, const Camera& camera, int width, int height) {
+    double discriminant = half_b * half_b - a * c;
+
+    if (discriminant < 0) {
+		return std::nullopt;
+    }
+
+    double sqrt_d = std::sqrt(discriminant);
+
+	double t = (-half_b - sqrt_d) / a;
+
+    if (t <= 1e-6) {
+		t = (-half_b + sqrt_d) / a;
+    }
+
+    if (t <= 1e-6) {
+		return std::nullopt;
+    }
+    return t;
+}
+
+std::array<double, 3>get_material_color(const Material& material) {
+
+    Vec3 color = material.albedo;
+
+    if (material.type == MaterialType::Emissive) {
+        color = material.emission;
+	}
+	return { color.x, color.y, color.z };
+}
+
+void render(const std::vector<Triangle>& triangles, const std::vector<Sphere>& spheres, const Camera& camera, int width, int height) {
+
+    if (width <= 0 || height <= 0) {
+        throw std::runtime_error("invalid image size");
+	}
 
     //image proportions, ratio between height and width as a double
     double aspect = static_cast<double>(width) / height;
+
+    //convert field of view to a scale
+    double scale = std::tan(camera.fov * std::numbers::pi / 360.0);
 
     std::ofstream image("rendered_room.ppm");
     if (!image) {
@@ -115,9 +157,6 @@ void render(const std::vector<Triangle>& triangles, const Camera& camera, int wi
             //calculate the pixel's location in aspect to the center of the picture
             double u = (2.0 * (x + 0.5) / width - 1.0) * aspect;
             double v = 1.0 - 2.0 * (y + 0.5) / height;
-
-            //convert field of view to a scale
-            double scale = std::tan(camera.fov * std::numbers::pi / 360.0);
 
             //calculate ray direction
             Vec3 direction = normalize({
@@ -140,15 +179,27 @@ void render(const std::vector<Triangle>& triangles, const Camera& camera, int wi
 
                 if (t.has_value() && t.value() < nearest_t) {
                     nearest_t = t.value();
-                    color = tri.color;
+                    color = get_material_color(tri.material);
                 }
             }
+
+            for (const Sphere& sphere : spheres) {
+                
+                auto t = ray_sphere_intersect(camera.position, direction, sphere);
+
+                if (t.has_value() && t.value() < nearest_t) {
+                    nearest_t = t.value();
+                    color = get_material_color(sphere.material);
+                }
+			}
 
             //save pixel color
             write_color(image, color);
 
         }
     }
-
+    if (!image) {
+        throw std::runtime_error("could not write image");
+	}
 
 }

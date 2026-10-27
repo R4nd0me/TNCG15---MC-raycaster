@@ -1,0 +1,18 @@
+# Visual Studio
+.vs/
+*.ipch
+*.suo
+*.VC.db
+*.VC.opendb
+*.db
+
+# CMake build files
+out/
+build/
+CMakeFiles/
+CMakeCache.txt
+
+# Compiled files
+*.obj
+*.exe
+*.pdb
