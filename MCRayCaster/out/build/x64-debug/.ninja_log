@@ -1,0 +1,10 @@
+# ninja log v6
+47	4113	8143617898162098	CMakeFiles/MCRayCaster.dir/MCRayCaster.cpp.obj	d76849bcfcb0405
+1427	1786	8147120911185549	MCRayCaster.exe	e3738163a7ce45d4
+31	1412	8147120897217034	CMakeFiles/MCRayCaster.dir/renderer.cpp.obj	58f5cf54b284b5d9
+19	1427	8147120897093769	CMakeFiles/MCRayCaster.dir/scene.cpp.obj	b3e2304252130fed
+30	1461	8147228193406685	CMakeFiles/MCRayCaster.dir/renderer.cpp.obj	58f5cf54b284b5d9
+27	1095	8147228365805216	CMakeFiles/MCRayCaster.dir/scene.cpp.obj	b3e2304252130fed
+1098	1558	8147228376509377	MCRayCaster.exe	e3738163a7ce45d4
+58	2390	8147247995888532	CMakeFiles/MCRayCaster.dir/renderer.cpp.obj	58f5cf54b284b5d9
+2395	2840	8147248019250239	MCRayCaster.exe	e3738163a7ce45d4
