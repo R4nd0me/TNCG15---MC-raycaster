@@ -1,7 +1,7 @@
 
 #include <array>
 #include "Vec3.h"
-#include "Material.h"
+#include "Mat.h"
 
 #pragma once
 

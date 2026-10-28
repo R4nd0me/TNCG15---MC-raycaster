@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Vec3.h"
-#include "Material.h"
+#include "Mat.h"
 
 struct Sphere {
 	Vec3 center;

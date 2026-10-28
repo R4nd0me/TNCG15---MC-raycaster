@@ -5,5 +5,5 @@
 #include <vector>
 
 std::vector<Triangle> create_room();
-std::vector<Triangle> create_tetrahedron();
+std::vector<Triangle> create_tetrahedon();
 std::vector<Sphere> create_spheres();

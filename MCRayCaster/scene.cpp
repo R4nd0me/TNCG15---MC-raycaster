@@ -1,14 +1,11 @@
 ﻿
-#include "Vec3.h"
-#include "Triangle.h"
 #include "MCRayTracer.h"
 #include "Renderer.h"
-#include "Camera.h"
-#include "Material.h"
-#include "Sphere.h"
+#include "Mat.h"
+#include "Vec3.h"
 
 #include <vector>
-#include <array>
+#include <cmath>
 #include <iostream>
 
 
@@ -105,7 +102,10 @@ int main() {
 		90.0             //field of view
 	};
 
-	render(triangles, spheres, camera, 400, 400);
+	std::cout << "Triangles: " << triangles.size()
+		<< ", spheres: " << spheres.size() << '\n';
+	// Start with 200x200, 32 spp; increase once everything works.
+	render(triangles, spheres, camera, 200, 200, 32);
 
 	return 0;
 }
